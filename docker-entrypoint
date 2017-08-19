@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-ip=$(grep `hostname` /etc/hosts|awk '{print $1}')
-echo $ip nethost >> /etc/hosts
+if ! grep -q ' nethost$' /etc/hosts; then
+    ip=$(grep `hostname` /etc/hosts|awk '{print $1}')
+    echo $ip nethost >> /etc/hosts
+fi
 
 exec "$@"
