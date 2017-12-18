@@ -11,7 +11,7 @@ RUN set -ex \
     && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk del tzdata \
     \
-    && mkdir -p /usr/local/var/log /usr/local/etc
+    && mkdir -p /conf /data /log
 
 COPY docker-* /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint"]
